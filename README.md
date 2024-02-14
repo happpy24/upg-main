@@ -9,7 +9,8 @@ Developed by students at [HU](https://www.hu.nl) - Utrecht University of Applied
 - [upg-site](https://github.com/happpy24/upg-site) - The Website used to host the WebGL application.
 
 ### About Main
-##### The main application is developed with Unity and works on Windows (with maybe more to follow). This application is the only one you have to pay for, it will work as the host for games. It connects to our service and from there gives out a code. If you match codes on our site, you are ready to play!
+The main application is developed with Unity and works on Windows (with maybe more to follow). This application is the only one you have to pay for, it will work as the host for games. It connects to our service and from there gives out a code. If you match codes on our site, you are ready to play!
+
 ---
 ### What *is* Unity Party Game?
 Unity Party Game is a Party game designed with the best party games in mind! We take inspiration from both board games, and games like Mario Party & Jackbox Games.
@@ -22,11 +23,11 @@ You are in a fallen land, falled by a curse. You and up to 7 other adventurers m
 ### Who is making this?
 Us! The Unity Party Game dev team :)
 - [Vivian Speijer](https://github.com/happpy24)
-- [Max Lichtneker](https://www.youtube.com/watch?v=tXAbnRAFkrY)
-- [Eke Reus](https://www.youtube.com/watch?v=tXAbnRAFkrY)
+- [Max Lichtneker](https://github.com/MaxLichtneker)
+- [Eke Reus](https://github.com/E-Meister2012)
 - [Laura van Ekris](https://github.com/LauraVEkris)
 - [Sander Grootjans](https://github.com/Sander470)
-- [Robert Dooren](https://www.youtube.com/watch?v=tXAbnRAFkrY)
+- [Robert Dooren](https://github.com/Robert-ME-DH)
 
 ---
 ### Credits, Resources, Links that helped us and more!
