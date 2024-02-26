@@ -27,9 +27,14 @@ Us! The Unity Party Game dev team :)
 - [Eke Reus](https://github.com/E-Meister2012)
 - [Laura van Ekris](https://github.com/LauraVEkris)
 - [Sander Grootjans](https://github.com/Sander470)
-- [Robert Dooren](https://github.com/Robert-ME-DH)
+- [Robert Dooren](https://github.com/Robert-ME-DH) - *Cyber Security*
 
 ---
 ### Credits, Resources, Links that helped us and more!
 
 ~ its still quite empty in here
+
+**Robert Dooren** - *Cyber Security*
+
+Youtube Tutorials used:
+- [ Install Ubuntu Server - Full Setup Guide](https://www.youtube.com/watch?v=K2m52F0S2w8)
