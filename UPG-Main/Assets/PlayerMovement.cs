@@ -18,13 +18,11 @@ public class PlayerMovement : MonoBehaviour
     public TextMeshPro roll;
     public float rollMargin = 1;
 
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("GetStartPos", 1);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -39,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = currentNode.position + Vector3.up * (currentNode.radius + transform.localScale.y / 2);
         roll.transform.position = transform.position + Vector3.up * rollMargin;
         roll.enabled = false;
-        
+ 
         SpawnArrows();
     }
     void MovePlayer()
@@ -81,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         {
             int tempDice = rand.Next(1, 7);
             roll.text = tempDice.ToString();
-            yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.05f);
             timer += 0.05f;
         }
         diceRoll = rand.Next(1, 7);
