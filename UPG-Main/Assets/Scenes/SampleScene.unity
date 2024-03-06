@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98aa1fa16bb8f6649ba301a6ded88d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Arrow: {fileID: 3290622852253745527, guid: 9134b74ed6cd71641903f400acd94141, type: 3}
+  Arrow: {fileID: 357347931409864946, guid: 9134b74ed6cd71641903f400acd94141, type: 3}
   playerSpeed: 0.2
   roll: {fileID: 1154842105}
   rollMargin: 0.2
