@@ -20,13 +20,20 @@ public class ArrowPointer : MonoBehaviour
     void Update()
     {
     }
-
+    /// <summary>
+    ///DestroyArrows is seperate because it needs to be called in PlayerMovement
+    /// </summary>
     public void DestroyArrows()
     {
         foreach (GameObject arrow in arrows)
             Destroy(arrow);
     }
 
+    /// <summary>
+    /// Spawns in the arrows that point to the available spots. These arrows are colored according to the spot that is selected
+    /// </summary>
+    /// <param name="currentNode"></param>
+    /// <param name="path"></param>
     public void SpawnArrows(Node currentNode, int path)
     {
         DestroyArrows();

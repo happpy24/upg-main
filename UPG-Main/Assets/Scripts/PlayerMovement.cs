@@ -13,9 +13,14 @@ public class PlayerMovement : MonoBehaviour
         arrowManager = arrowPointer.GetComponent<ArrowPointer>();
     }
 
+    /// <summary>
+    /// Lets the player move towards a target
+    /// </summary>
+    /// <param name="player"></param>
+    /// <param name="playerTransform"></param>
     public void MovePlayer(Player player, Transform playerTransform)
     {
-        ///Sets the target for the movement, just above the sphere of the node that are drawn in the gizmos
+        //Sets the target for the movement, just above the sphere of the node that are drawn in the gizmos
         Vector3 target = player.nextNode.position + Vector3.up * player.currentNode.radius;
         playerTransform.position = Vector3.MoveTowards(playerTransform.position, target, player.playerSpeed);
         if (transform.position == target)
@@ -23,13 +28,16 @@ public class PlayerMovement : MonoBehaviour
             HandleDirectionInput(player);
         }
     }
+    /// <summary>
+    /// Used for handling the choice the player has to make if they come across a fork in the path
+    /// </summary>
+    /// <param name="player"></param>
     void HandleDirectionInput(Player player)
     {
         int count = player.nextNode.edge.toNodes.Count;
-        ///If one of a few conditions are met, the movement is continued
-        ///Return: The player confirms their choice
-        ///Count < 2 means that the edge has only one toNode, so the player doesn't need to choose
-        ///TODO: Add a type of node that doesn't subtract from the diceRoll, when added change this up to fit that. The new node should be used for the split paths
+        //If one of a few conditions are met, the movement is continued
+        //Return: The player confirms their choice
+        //Count < 2 means that the edge has only one toNode, so the player doesn't need to choose
         if (Input.GetKeyDown(KeyCode.Return) || count < 2 )
         {
             ContinueMovement(player);return;
@@ -41,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
             chosenPath = (chosenPath - 1 + count) % count;
         arrowManager.SpawnArrows(player.nextNode, chosenPath);
     }
+    /// <summary>
+    /// Updated the player variables to continue the movement of the player
+    /// </summary>
+    /// <param name="player"></param>
     void ContinueMovement(Player player)
     {
         player.currentNode = player.nextNode;

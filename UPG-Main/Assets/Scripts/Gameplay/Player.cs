@@ -26,7 +26,10 @@ public class Player : MonoBehaviour
         if (diceRoll > 0)
             movement.MovePlayer(this, transform);
     }
-
+    /// <summary>
+    /// Simulates a dice roll by rolling random numbers for a given amount of time. Then returning a final number
+    /// </summary>
+    /// <returns></returns>
     IEnumerator RollDice()
     {
         roll.enabled = true;
@@ -43,6 +46,10 @@ public class Player : MonoBehaviour
         roll.text = diceRoll.ToString();
     }
 
+    /// <summary>
+    /// Gets the starting position of the player
+    /// TODO: Adjust the method to have variable starting positions
+    /// </summary>
     void GetStartPos()
     {
         GraphManager manager = GameObject.FindGameObjectWithTag("Tiles").GetComponent<GraphManager>();
@@ -54,6 +61,9 @@ public class Player : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Handles the turn and turn order in the game
+    /// </summary>
     void Turn()
     {
     }
