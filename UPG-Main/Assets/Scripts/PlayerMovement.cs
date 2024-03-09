@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     int chosenPath = 0;
-    public GameObject arrowPointer;
-    ArrowPointer arrowManager;
+    public GameObject arrowManager;
+    ArrowPointer arrowPointer;
     private void Start()
     {
-        arrowManager = arrowPointer.GetComponent<ArrowPointer>();
+        arrowPointer = arrowManager.GetComponent<ArrowPointer>();
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             chosenPath = (chosenPath + 1) % count;
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
             chosenPath = (chosenPath - 1 + count) % count;
-        arrowManager.SpawnArrows(player.nextNode, chosenPath);
+        arrowPointer.SpawnArrows(player.nextNode, chosenPath);
     }
     /// <summary>
     /// Updated the player variables to continue the movement of the player
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         player.diceRoll--;
         player.roll.enabled = player.diceRoll > 0;
         player.roll.text = player.diceRoll.ToString();
-        arrowManager.DestroyArrows();
+        arrowPointer.DestroyArrows();
         chosenPath = 0;
     }
 }
