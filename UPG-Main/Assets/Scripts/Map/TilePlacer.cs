@@ -12,7 +12,6 @@ public class TilePlacer : MonoBehaviour
     void Start()
     {
         PlaceTiles();
-
     }
 
     // Update is called once per frame
