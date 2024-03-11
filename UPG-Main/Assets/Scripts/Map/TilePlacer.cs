@@ -20,7 +20,9 @@ public class TilePlacer : MonoBehaviour
     {
         
     }
-
+    /// <summary>
+    /// Instantiates a Tile cube from the prefabs on top of a node.
+    /// </summary>
     void PlaceTiles()
     {
         GraphManager Manager = GameObject.FindGameObjectWithTag("Tiles").GetComponent<GraphManager>();

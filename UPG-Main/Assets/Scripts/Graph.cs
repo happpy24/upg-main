@@ -17,7 +17,7 @@ public class Graph
 /// </summary>
 public class Node
 {
-    public Color nodeColor { get; set; }
+    /*public Color nodeColor { get; set; }*/
     public Vector3 position { get; set; }
     public Edge edge { get; set; }
     public float radius { get; set; }
