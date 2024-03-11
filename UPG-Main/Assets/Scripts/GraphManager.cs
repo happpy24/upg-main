@@ -9,7 +9,6 @@ using UnityEngine;
 public class GraphManager : MonoBehaviour
 {
     public Graph board { get; private set; }
-    int count = 0;
     Edge edge;
     void Start()
     {
@@ -76,8 +75,5 @@ public class GraphManager : MonoBehaviour
                 }
             }
         }
-        if (count == 0)
-            count++;
     }
-
 }
