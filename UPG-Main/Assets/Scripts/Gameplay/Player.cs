@@ -25,26 +25,10 @@ internal class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) 
-        {
-            AddItem(new DoubleDice(this));
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            AddItem(new SpeedUp(this));
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            UseItem(0);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            UseItem(1);
-        }
         if (diceRoll > 0 && !usedDouble)
             movement.MovePlayer(this, transform);
     }
-    void AddItem(ItemManager item)
+    internal void AddItem(ItemManager item)
     {
         for(int i = 0; i < items.Length; i++)
         {
@@ -55,7 +39,7 @@ internal class Player : MonoBehaviour
             return;
         }
     }
-    void UseItem(int loc)
+    internal void UseItem(int loc)
     {
         if (items[loc] == null) return;
         items[loc].UseItem();
@@ -86,6 +70,8 @@ internal class Player : MonoBehaviour
         roll.text = diceRoll.ToString();
     }
 
+   
+
     /// <summary>
     /// Gets the starting position of the player
     /// TODO: Adjust the method to have variable starting positions
@@ -99,12 +85,5 @@ internal class Player : MonoBehaviour
         roll.transform.position = transform.position + Vector3.up * rollMargin;
         roll.enabled = false;
         
-    }
-
-    /// <summary>
-    /// Handles the turn and turn order in the game
-    /// </summary>
-    void Turn()
-    {
     }
 }

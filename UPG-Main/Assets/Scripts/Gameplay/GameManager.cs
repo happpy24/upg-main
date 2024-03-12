@@ -12,7 +12,7 @@ internal class GameManager : MonoBehaviour
     public GameObject playerParent;
     internal GameObject[] players = new GameObject[4];
     public DummyData dummyData;
-    GameObject activePlayer;
+    Player activePlayer;
 
 
     private void Start()
@@ -31,12 +31,20 @@ internal class GameManager : MonoBehaviour
         {
             TriggerOpening();
         }
-        activePlayer = players[0];
+        activePlayer = players[0].GetComponent<Player>();
         Debug.Log("It is now Round "+round);
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+            activePlayer.AddItem(new DoubleDice(activePlayer));
+        if (Input.GetKeyDown(KeyCode.W))
+            activePlayer.AddItem(new SpeedUp(activePlayer));
+        if (Input.GetKeyDown(KeyCode.E))
+            activePlayer.UseItem(0);
+        if (Input.GetKeyDown(KeyCode.R))
+            activePlayer.UseItem(1);
         if (Input.GetKeyDown(KeyCode.Space))
             StartCoroutine(activePlayer.GetComponent<Player>().RollDice(1));
     }
