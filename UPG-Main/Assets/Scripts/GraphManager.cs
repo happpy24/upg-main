@@ -20,7 +20,7 @@ internal class GraphManager : MonoBehaviour
     {
         string s;
         List<float> split = new List<float>();
-        StreamReader reader = new StreamReader(Application.dataPath + "/textfiles/nodes.txt");
+        StreamReader reader = new StreamReader(Application.dataPath + "/Textfiles/nodes.txt");
         while ((s = reader.ReadLine()) != null)
         {
             split.Clear();
@@ -36,7 +36,7 @@ internal class GraphManager : MonoBehaviour
         string s;
         List<int> splitint = new List<int>();
         List<float> splitcolor = new List<float>();
-        StreamReader reader = new StreamReader(Application.dataPath + "/textfiles/edges.txt");
+        StreamReader reader = new StreamReader(Application.dataPath + "/Textfiles/edges.txt");
         while ((s = reader.ReadLine()) != null)
         {
             splitcolor = ReturnSplit(s);
