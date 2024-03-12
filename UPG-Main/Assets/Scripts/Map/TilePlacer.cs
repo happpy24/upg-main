@@ -29,7 +29,7 @@ public class TilePlacer : MonoBehaviour
         for (int i = 0; i < Manager.board.nodes.Count; i++)
         {
             GameObject tileInstance = Instantiate(tile, Manager.board.nodes[i].position, new Quaternion(0, 0, 0, 0));
-            tileInstance.transform.SetParent(parent, false);
+            tileInstance.transform.SetParent(parent, true);
         }
     }
 }
