@@ -6,9 +6,9 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GraphManager : MonoBehaviour
+internal class GraphManager : MonoBehaviour
 {
-    public Graph board { get; private set; }
+    internal Graph board { get; private set; }
     Edge edge;
     void Start()
     {
