@@ -37,14 +37,6 @@ internal class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-            activePlayer.AddItem(new DoubleDice(activePlayer));
-        if (Input.GetKeyDown(KeyCode.W))
-            activePlayer.AddItem(new SpeedUp(activePlayer));
-        if (Input.GetKeyDown(KeyCode.E))
-            activePlayer.UseItem(0);
-        if (Input.GetKeyDown(KeyCode.R))
-            activePlayer.UseItem(1);
         if (Input.GetKeyDown(KeyCode.Space))
             StartCoroutine(activePlayer.GetComponent<Player>().RollDice(1));
     }

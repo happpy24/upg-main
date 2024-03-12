@@ -15,7 +15,6 @@ internal class Player : MonoBehaviour
     internal Node currentNode;
     internal Node nextNode;
     internal bool usedBoost = false, usedDouble = false;
-    public Image[] itemFrames = new Image[3];
     ItemManager[] items = new ItemManager[3];
 
     void Start()
@@ -35,7 +34,6 @@ internal class Player : MonoBehaviour
             if (items[i] != null) continue;
             items[i] = item;
             Debug.Log(items[i]);
-            items[i].GetInfo(itemFrames[i]);
             return;
         }
     }
@@ -44,7 +42,6 @@ internal class Player : MonoBehaviour
         if (items[loc] == null) return;
         items[loc].UseItem();
         items[loc] = null;
-        itemFrames[loc].sprite = null;
     }
     /// <summary>
     /// Simulates a dice roll by rolling random numbers for a given amount of time. Then returning a final number
