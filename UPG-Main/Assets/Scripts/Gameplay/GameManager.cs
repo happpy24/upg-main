@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+internal class GameManager : MonoBehaviour
 {
-    public int round = 0;
+    internal int round = 0;
 
     [SerializeField]
     private GameObject playerPrefab;
-    public GameObject players;
-
+    public GameObject playerParent;
+    internal GameObject[] players = new GameObject[4];
     public DummyData dummyData;
+    GameObject activePlayer;
 
 
     private void Start()
@@ -20,7 +21,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             GameObject Player = Instantiate(playerPrefab);
-            Player.transform.SetParent(players.transform);
+            players[i] = Player;
+            players[i].transform.SetParent(playerParent.transform);
         }
 
         dummyData.GiveNames();
@@ -29,12 +31,14 @@ public class GameManager : MonoBehaviour
         {
             TriggerOpening();
         }
+        activePlayer = players[0];
         Debug.Log("It is now Round "+round);
     }
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+            StartCoroutine(activePlayer.GetComponent<Player>().RollDice(1));
     }
 
     void TriggerOpening()
