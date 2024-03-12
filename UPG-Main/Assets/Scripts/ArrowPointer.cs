@@ -7,7 +7,7 @@ public class ArrowPointer : MonoBehaviour
     GameObject mainCamera;
     List<GameObject> arrows = new List<GameObject>();
     public GameObject arrowObject;
-    public Vector3 to { get; set; }
+    internal Vector3 to { get; set; }
     public Material Selected, Deselected;
 
     void Start()
@@ -23,7 +23,7 @@ public class ArrowPointer : MonoBehaviour
     /// <summary>
     ///DestroyArrows is seperate because it needs to be called in PlayerMovement
     /// </summary>
-    public void DestroyArrows()
+    internal void DestroyArrows()
     {
         foreach (GameObject arrow in arrows)
             Destroy(arrow);
@@ -34,7 +34,7 @@ public class ArrowPointer : MonoBehaviour
     /// </summary>
     /// <param name="currentNode"></param>
     /// <param name="path"></param>
-    public void SpawnArrows(Node currentNode, int path)
+    internal void SpawnArrows(Node currentNode, int path)
     {
         DestroyArrows();
         if (currentNode.edge.toNodes.Count > 1)

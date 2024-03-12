@@ -3,14 +3,13 @@ using System.Threading;
 using TMPro;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+internal class PlayerMovement : MonoBehaviour
 {
     int chosenPath = 0;
-    public GameObject arrowManager;
     ArrowPointer arrowPointer;
     private void Start()
     {
-        arrowPointer = arrowManager.GetComponent<ArrowPointer>();
+        arrowPointer = GameObject.FindGameObjectWithTag("ArrowPointer").GetComponent<ArrowPointer>();
     }
 
     /// <summary>
@@ -18,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     /// <param name="player"></param>
     /// <param name="playerTransform"></param>
-    public void MovePlayer(Player player, Transform playerTransform)
+    internal void MovePlayer(Player player, Transform playerTransform)
     {
         //Sets the target for the movement, just above the sphere of the node that are drawn in the gizmos
         Vector3 target = player.nextNode.position + Vector3.up * player.currentNode.radius;

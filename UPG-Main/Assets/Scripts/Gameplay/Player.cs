@@ -1,18 +1,22 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+internal class Player : MonoBehaviour
 {
-    public int followOrder;
+    internal int followOrder;
     public PlayerMovement movement;
     public TextMeshPro roll;
     public float rollMargin;
     public float playerSpeed;
-    public int diceRoll;
+    internal int diceRoll;
     System.Random rand = new System.Random();
-    public Node currentNode;
-    public Node nextNode;
+    internal Node currentNode;
+    internal Node nextNode;
+    internal bool usedBoost = false, usedDouble = false;
+    public Image[] itemFrames = new Image[3];
+    ItemManager[] items = new ItemManager[3];
 
     void Start()
     {
@@ -21,16 +25,48 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            StartCoroutine(RollDice());
-        if (diceRoll > 0)
+        if (Input.GetKeyDown(KeyCode.Q)) 
+        {
+            AddItem(new DoubleDice(this));
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            AddItem(new SpeedUp(this));
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            UseItem(0);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            UseItem(1);
+        }
+        if (diceRoll > 0 && !usedDouble)
             movement.MovePlayer(this, transform);
+    }
+    void AddItem(ItemManager item)
+    {
+        for(int i = 0; i < items.Length; i++)
+        {
+            if (items[i] != null) continue;
+            items[i] = item;
+            Debug.Log(items[i]);
+            items[i].GetInfo(itemFrames[i]);
+            return;
+        }
+    }
+    void UseItem(int loc)
+    {
+        if (items[loc] == null) return;
+        items[loc].UseItem();
+        items[loc] = null;
+        itemFrames[loc].sprite = null;
     }
     /// <summary>
     /// Simulates a dice roll by rolling random numbers for a given amount of time. Then returning a final number
     /// </summary>
     /// <returns></returns>
-    IEnumerator RollDice()
+    internal IEnumerator RollDice(int run)
     {
         roll.enabled = true;
         float timer = 0;
@@ -42,7 +78,11 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
             timer += 0.05f;
         }
-        diceRoll = rand.Next(1, 7);
+        diceRoll += rand.Next(1, 7);
+        if (usedBoost) diceRoll += 5;
+        usedBoost = false;
+        if(usedDouble && run < 2) StartCoroutine(RollDice(2));
+        else usedDouble = false;
         roll.text = diceRoll.ToString();
     }
 
