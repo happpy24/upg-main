@@ -12,7 +12,7 @@ internal class GameManager : MonoBehaviour
     public GameObject playerParent;
     internal GameObject[] players = new GameObject[4];
     public DummyData dummyData;
-    Player activePlayer;
+    internal Player activePlayer;
 
 
     private void Start()
@@ -37,7 +37,7 @@ internal class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && activePlayer.diceRoll < 1)
             StartCoroutine(activePlayer.GetComponent<Player>().RollDice(1));
     }
 

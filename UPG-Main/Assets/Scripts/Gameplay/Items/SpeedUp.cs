@@ -9,6 +9,7 @@ internal class SpeedUp : ItemManager
         path = Application.dataPath + "/Sprites/Items/speedboost.png";
         itemName = "Speed Boost";
         desc = "This item gives you a +5 to your roll";
+        cost = 5;
     }
     internal override void UseItem()
     {

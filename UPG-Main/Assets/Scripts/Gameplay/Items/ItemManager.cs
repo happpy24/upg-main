@@ -1,4 +1,5 @@
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +22,6 @@ internal class ItemManager
     }
     internal void GetInfo(Image image)
     {
-        Debug.Log(path);
         Texture2D spriteTexture = LoadTexture(path);
         if (spriteTexture != null)
         {
