@@ -39,6 +39,7 @@ internal class GameManager : MonoBehaviour
             TriggerOpening();
         }
 
+        // Debug moment
         for (int i = 0;i < 4; i++)
         {
             debugText[i].GetComponent<TextMeshProUGUI>().text = players[i].name;
@@ -54,6 +55,13 @@ internal class GameManager : MonoBehaviour
     {
         if (!LoopRunning)
             StartCoroutine(RoundLoop());
+
+        // Debug moment
+        for (int i = 0; i < 4; i++)
+        {
+            Vector3 playerPos = players[i].transform.position;
+            debugText[i + 4].GetComponent<TextMeshProUGUI>().text = Mathf.Floor(playerPos.x).ToString() + Mathf.Floor(playerPos.y).ToString() + Mathf.Floor(playerPos.z).ToString();
+        }
     }
 
     /// <summary>
