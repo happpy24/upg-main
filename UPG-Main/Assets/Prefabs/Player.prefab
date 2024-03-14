@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98aa1fa16bb8f6649ba301a6ded88d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowManager: {fileID: 0}
 --- !u!114 &7976566358931924678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,11 +135,7 @@ MonoBehaviour:
   movement: {fileID: 4566216230492030263}
   roll: {fileID: 3997048041111954233}
   rollMargin: 0.2
-  playerSpeed: 0.2
-  itemFrames:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  playerSpeed: 6
 --- !u!1 &3697079147272794822
 GameObject:
   m_ObjectHideFlags: 0

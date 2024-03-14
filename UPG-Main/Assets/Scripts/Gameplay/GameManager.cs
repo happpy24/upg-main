@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Unity.UI;
+using TMPro;
+using System.Runtime.CompilerServices;
+using DG.Tweening;
 
 internal class GameManager : MonoBehaviour
 {
@@ -13,8 +17,11 @@ internal class GameManager : MonoBehaviour
     internal GameObject[] players = new GameObject[4];
     public DummyData dummyData;
     Player activePlayer;
+    private bool LoopRunning = false;
 
-
+    [SerializeField]
+    private GameObject[] debugText;
+    
     private void Start()
     {
         // TEMP ADDING PLAYERS
@@ -31,19 +38,53 @@ internal class GameManager : MonoBehaviour
         {
             TriggerOpening();
         }
+
+        for (int i = 0;i < 4; i++)
+        {
+            debugText[i].GetComponent<TextMeshProUGUI>().text = players[i].name;
+            Vector3 playerPos = players[i].transform.position;
+            debugText[i + 4].GetComponent<TextMeshProUGUI>().text = Mathf.Floor(playerPos.x).ToString() + Mathf.Floor(playerPos.y).ToString() + Mathf.Floor(playerPos.z).ToString();
+        }
+
         activePlayer = players[0].GetComponent<Player>();
         Debug.Log("It is now Round "+round);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            StartCoroutine(activePlayer.GetComponent<Player>().RollDice(1));
+        if (!LoopRunning)
+            StartCoroutine(RoundLoop());
     }
 
+    /// <summary>
+    /// Shows opening at the start of the game.
+    /// </summary>
     void TriggerOpening()
     {
         Debug.Log("Triggered Opening");
         round++;
+    }
+
+    /// <summary>
+    /// Loops for each instance of Player in the Gamemanager to form a complete round.
+    /// </summary>
+    IEnumerator RoundLoop()
+    {
+        // dit zou niet mogen werken - mad fps drops door deze line - idc - backlog in sprint 12 ofzo
+        LoopRunning = true;
+        for (int i = 0; i < players.Length; i++)
+        {
+            activePlayer = players[i].GetComponent<Player>();
+
+            // Wait for space key press to roll dice
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+            
+            // Roll dice for the active player
+            yield return StartCoroutine(activePlayer.RollDice(1));
+            Debug.Log("Player moving:" + activePlayer.name);
+        }
+        round++;
+        Debug.Log("It is now Round " + round);
+        LoopRunning = false;
     }
 }
