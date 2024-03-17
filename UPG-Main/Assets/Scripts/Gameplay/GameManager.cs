@@ -11,6 +11,7 @@ internal class GameManager : MonoBehaviour
     private GameObject playerPrefab;
     public GameObject playerParent;
     internal GameObject[] players = new GameObject[4];
+    public Player player1;
     public DummyData dummyData;
     internal Player activePlayer;
 
@@ -23,6 +24,8 @@ internal class GameManager : MonoBehaviour
             GameObject Player = Instantiate(playerPrefab);
             players[i] = Player;
             players[i].transform.SetParent(playerParent.transform);
+            players[i].GetComponent<Player>().itemFrames = player1.itemFrames;
+
         }
 
         dummyData.GiveNames();
@@ -38,7 +41,19 @@ internal class GameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && activePlayer.diceRoll < 1)
-            StartCoroutine(activePlayer.GetComponent<Player>().RollDice(1));
+            StartCoroutine(activePlayer.GetComponent<Player>().RollDice(1, ""));
+        if (Input.GetKeyDown(KeyCode.Q))
+            activePlayer.AddItem(new DoubleDice(activePlayer));
+        if (Input.GetKeyDown(KeyCode.W))
+            activePlayer.AddItem(new SpeedUp(activePlayer));
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            activePlayer.UseItem(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            activePlayer.UseItem(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            activePlayer.UseItem(2);
+
+
     }
 
     void TriggerOpening()
