@@ -12,7 +12,6 @@ public class TilePlacer : MonoBehaviour
     void Start()
     {
         PlaceTiles();
-
     }
 
     // Update is called once per frame
@@ -20,7 +19,9 @@ public class TilePlacer : MonoBehaviour
     {
         
     }
-
+    /// <summary>
+    /// Instantiates a Tile cube from the prefabs on top of a node.
+    /// </summary>
     void PlaceTiles()
     {
         GraphManager Manager = GameObject.FindGameObjectWithTag("Tiles").GetComponent<GraphManager>();
@@ -28,7 +29,7 @@ public class TilePlacer : MonoBehaviour
         for (int i = 0; i < Manager.board.nodes.Count; i++)
         {
             GameObject tileInstance = Instantiate(tile, Manager.board.nodes[i].position, new Quaternion(0, 0, 0, 0));
-            tileInstance.transform.SetParent(parent, false);
+            tileInstance.transform.SetParent(parent, true);
         }
     }
 }

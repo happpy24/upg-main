@@ -17,7 +17,6 @@ internal class Graph
 /// </summary>
 internal class Node
 {
-    internal Color nodeColor { get; set; }
     internal Vector3 position { get; set; }
     internal Edge edge { get; set; }
     internal float radius { get; set; }
