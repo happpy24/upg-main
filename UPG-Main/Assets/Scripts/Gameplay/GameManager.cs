@@ -56,8 +56,6 @@ internal class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && activePlayer.diceRoll < 1)
-            StartCoroutine(activePlayer.GetComponent<Player>().RollDice(1, ""));
         if (Input.GetKeyDown(KeyCode.Q))
             activePlayer.AddItem(new DoubleDice(activePlayer));
         if (Input.GetKeyDown(KeyCode.W))
@@ -103,9 +101,9 @@ internal class GameManager : MonoBehaviour
 
             // Wait for space key press to roll dice
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-            
+
             // Roll dice for the active player
-            yield return StartCoroutine(activePlayer.RollDice(1));
+            yield return StartCoroutine(activePlayer.RollDice(1, ""));
             Debug.Log("Player moving:" + activePlayer.name);
         }
         round++;

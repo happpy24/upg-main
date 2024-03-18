@@ -66,10 +66,12 @@ internal class Player : MonoBehaviour
         }
         roll.text = startString + tempDice.ToString();
         diceRoll += tempDice;
-        yield return new WaitForSeconds(2.15f);
-        if (usedBoost) diceRoll += 5;
-        usedBoost = false;
-        if(usedDouble && run < 2) StartCoroutine(RollDice(2, diceRoll.ToString() + "   "));
+        if (usedBoost)
+            diceRoll += 5;
+            usedBoost = false;
+        yield return new WaitForSeconds(0.5f);
+        if(usedDouble && run < 2) 
+            StartCoroutine(RollDice(2, diceRoll.ToString() + "   "));
         else usedDouble = false;
         roll.text = diceRoll.ToString();
     }
