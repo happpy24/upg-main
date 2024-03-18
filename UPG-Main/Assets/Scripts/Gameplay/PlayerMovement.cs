@@ -21,7 +21,7 @@ internal class PlayerMovement : MonoBehaviour
     {
         //Sets the target for the movement, just above the sphere of the node that are drawn in the gizmos
         Vector3 target = player.nextNode.position + Vector3.up * player.currentNode.radius;
-        playerTransform.position = Vector3.MoveTowards(playerTransform.position, target, player.playerSpeed);
+        playerTransform.position = Vector3.MoveTowards(playerTransform.position, target, player.playerSpeed * Time.deltaTime);
         if (transform.position == target)
         {
             HandleDirectionInput(player);

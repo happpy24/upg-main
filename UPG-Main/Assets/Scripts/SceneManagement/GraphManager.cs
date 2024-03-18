@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
 internal class GraphManager : MonoBehaviour
@@ -16,6 +14,7 @@ internal class GraphManager : MonoBehaviour
         MakeNodes();
         MakeEdges();
     }
+
     void MakeNodes()
     {
         string s;
