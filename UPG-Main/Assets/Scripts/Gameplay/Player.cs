@@ -17,6 +17,7 @@ internal class Player : MonoBehaviour
     internal bool usedBoost = false, usedDouble = false;
     public Image[] itemFrames = new Image[3];
     ItemManager[] items = new ItemManager[3];
+    bool diceRolling = false;
 
     void Start()
     {
@@ -25,7 +26,7 @@ internal class Player : MonoBehaviour
 
     void Update()
     {
-        if (diceRoll > 0 && !usedDouble)
+        if (diceRoll > 0 && !diceRolling)
             movement.MovePlayer(this, transform);
     }
     internal void AddItem(ItemManager item)
@@ -53,6 +54,7 @@ internal class Player : MonoBehaviour
     /// <returns></returns>
     internal IEnumerator RollDice(int run, string startString)
     {
+        diceRolling = true;
         roll.enabled = true;
         float timer = 0;
         float rollTime = 1f;
@@ -68,12 +70,13 @@ internal class Player : MonoBehaviour
         diceRoll += tempDice;
         if (usedBoost)
             diceRoll += 5;
-            usedBoost = false;
-        yield return new WaitForSeconds(0.5f);
+        usedBoost = false;
         if(usedDouble && run < 2) 
             StartCoroutine(RollDice(2, diceRoll.ToString() + "   "));
         else usedDouble = false;
         roll.text = diceRoll.ToString();
+        yield return new WaitForSeconds(1.5f);
+        diceRolling = false;
     }
 
    

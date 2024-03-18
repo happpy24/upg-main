@@ -37,8 +37,8 @@ public class ArrowPointer : MonoBehaviour
     internal void SpawnArrows(Node currentNode, int path)
     {
         DestroyArrows();
-        if (currentNode.edge.toNodes.Count > 1)
-        {
+        if (currentNode.edge.toNodes.Count < 2)
+            return;
             int index = 0;
             foreach (Node toNode in currentNode.edge.toNodes)
             {
@@ -49,7 +49,6 @@ public class ArrowPointer : MonoBehaviour
                 arrows.Add(arrow);
                 index++;
             }
-        }
     }
 
     void PointArrow()
