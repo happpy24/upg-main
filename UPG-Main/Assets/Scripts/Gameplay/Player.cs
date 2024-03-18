@@ -17,7 +17,9 @@ internal class Player : MonoBehaviour
     internal bool usedBoost = false, usedDouble = false;
     public Image[] itemFrames = new Image[3];
     ItemManager[] items = new ItemManager[3];
+    internal Artifact[] artifacts = new Artifact[4];
     bool diceRolling = false;
+    public int ArtifactID = 0;
 
     void Start()
     {
