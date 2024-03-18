@@ -26,8 +26,7 @@ internal class GraphManager : MonoBehaviour
             foreach(string str in s.Split(' '))
                 split.Add(float.Parse(str));
             Vector3 vector = new Vector3(split[0], split[1], split[2]);
-/*            Color color = new Color(split[3], split[4], split[5]);*/
-            board.nodes.Add(new Node() { position = vector, /*nodeColor = color,*/ radius = 0.125f });
+            board.nodes.Add(new Node() { position = vector, radius = 0.125f });
         }
     }
     void MakeEdges()
@@ -63,14 +62,13 @@ internal class GraphManager : MonoBehaviour
             Start();
         foreach (var node in board.nodes)
         {
-/*            Gizmos.color = node.nodeColor;*/
             Gizmos.DrawSphere(node.position, node.radius);
             if (node.edge != null)
             {
                 foreach (var toNode in node.edge.toNodes)
                 {
-/*                    Gizmos.color = node.edge.edgeColor;
-*/                    Gizmos.DrawLine(node.position, toNode.position);
+                    Gizmos.color = node.edge.edgeColor;
+                    Gizmos.DrawLine(node.position, toNode.position);
                 }
             }
         }

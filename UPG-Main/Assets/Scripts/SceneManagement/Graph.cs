@@ -17,10 +17,9 @@ internal class Graph
 /// </summary>
 internal class Node
 {
-    /*public Color nodeColor { get; set; }*/
-    public Vector3 position { get; set; }
-    public Edge edge { get; set; }
-    public float radius { get; set; }
+    internal Vector3 position { get; set; }
+    internal Edge edge { get; set; }
+    internal float radius { get; set; }
 }
 /// <summary>
 /// Edges are the lines between the nodes that the players walk on
