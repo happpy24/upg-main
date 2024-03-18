@@ -15,8 +15,9 @@ internal class GameManager : MonoBehaviour
     private GameObject playerPrefab;
     public GameObject playerParent;
     internal GameObject[] players = new GameObject[4];
+    public Player player1;
     public DummyData dummyData;
-    Player activePlayer;
+    internal Player activePlayer;
     private bool LoopRunning = false;
 
     [SerializeField]
@@ -30,6 +31,8 @@ internal class GameManager : MonoBehaviour
             GameObject Player = Instantiate(playerPrefab);
             players[i] = Player;
             players[i].transform.SetParent(playerParent.transform);
+            players[i].GetComponent<Player>().itemFrames = player1.itemFrames;
+
         }
 
         dummyData.GiveNames();
@@ -53,6 +56,18 @@ internal class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+            activePlayer.AddItem(new DoubleDice(activePlayer));
+        if (Input.GetKeyDown(KeyCode.W))
+            activePlayer.AddItem(new SpeedUp(activePlayer));
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            activePlayer.UseItem(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            activePlayer.UseItem(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            activePlayer.UseItem(2);
+
+
         if (!LoopRunning)
             StartCoroutine(RoundLoop());
 
@@ -86,9 +101,9 @@ internal class GameManager : MonoBehaviour
 
             // Wait for space key press to roll dice
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-            
+
             // Roll dice for the active player
-            yield return StartCoroutine(activePlayer.RollDice(1));
+            yield return StartCoroutine(activePlayer.RollDice(1, ""));
             Debug.Log("Player moving:" + activePlayer.name);
         }
         round++;

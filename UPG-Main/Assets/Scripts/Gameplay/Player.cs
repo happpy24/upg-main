@@ -15,7 +15,9 @@ internal class Player : MonoBehaviour
     internal Node currentNode;
     internal Node nextNode;
     internal bool usedBoost = false, usedDouble = false;
+    public Image[] itemFrames = new Image[3];
     ItemManager[] items = new ItemManager[3];
+    bool diceRolling = false;
 
     void Start()
     {
@@ -24,7 +26,7 @@ internal class Player : MonoBehaviour
 
     void Update()
     {
-        if (diceRoll > 0 && !usedDouble)
+        if (diceRoll > 0 && !diceRolling)
             movement.MovePlayer(this, transform);
     }
     internal void AddItem(ItemManager item)
@@ -33,7 +35,9 @@ internal class Player : MonoBehaviour
         {
             if (items[i] != null) continue;
             items[i] = item;
-            Debug.Log(items[i]);
+            Debug.Log("Items: " + items[i]);
+            Debug.Log("Item Frames: " + itemFrames[i]);
+            items[i].GetInfo(itemFrames[i]);
             return;
         }
     }
@@ -42,29 +46,37 @@ internal class Player : MonoBehaviour
         if (items[loc] == null) return;
         items[loc].UseItem();
         items[loc] = null;
+        itemFrames[loc].sprite = null;
     }
     /// <summary>
     /// Simulates a dice roll by rolling random numbers for a given amount of time. Then returning a final number
     /// </summary>
     /// <returns></returns>
-    internal IEnumerator RollDice(int run)
+    internal IEnumerator RollDice(int run, string startString)
     {
+        diceRolling = true;
         roll.enabled = true;
         float timer = 0;
         float rollTime = 1f;
+        int tempDice = 0;
         while (timer < rollTime)
         {
-            int tempDice = rand.Next(1, 7);
-            roll.text = tempDice.ToString();
+            tempDice = rand.Next(1, 7);
+            roll.text = startString + tempDice.ToString();
             yield return new WaitForSeconds(0.05f);
             timer += 0.05f;
         }
-        diceRoll += rand.Next(1, 7);
-        if (usedBoost) diceRoll += 5;
+        roll.text = startString + tempDice.ToString();
+        diceRoll += tempDice;
+        if (usedBoost)
+            diceRoll += 5;
         usedBoost = false;
-        if(usedDouble && run < 2) StartCoroutine(RollDice(2));
+        if(usedDouble && run < 2) 
+            StartCoroutine(RollDice(2, diceRoll.ToString() + "   "));
         else usedDouble = false;
         roll.text = diceRoll.ToString();
+        yield return new WaitForSeconds(1.5f);
+        diceRolling = false;
     }
 
    
