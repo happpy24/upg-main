@@ -60,6 +60,8 @@ internal class GameManager : MonoBehaviour
             activePlayer.AddItem(new DoubleDice(activePlayer));
         if (Input.GetKeyDown(KeyCode.W))
             activePlayer.AddItem(new SpeedUp(activePlayer));
+        if(Input.GetKeyDown(KeyCode.E))
+            activePlayer.AddItem(new Artifact(activePlayer));
         if (Input.GetKeyDown(KeyCode.Alpha1))
             activePlayer.UseItem(0);
         if (Input.GetKeyDown(KeyCode.Alpha2))
