@@ -7,6 +7,7 @@ using TMPro;
 using System.Runtime.CompilerServices;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 internal class GameManager : MonoBehaviour
 {
@@ -110,7 +111,7 @@ internal class GameManager : MonoBehaviour
             Debug.Log("Player moving:" + activePlayer.name);
             yield return new WaitUntil(() => activePlayer.diceRoll <= 0);
         }
-        SceneManager.LoadScene("Minigame1");
+        SceneManager.LoadScene("Minigame1", LoadSceneMode.Additive);
         round++;
         Debug.Log("It is now Round " + round);
         LoopRunning = false;
