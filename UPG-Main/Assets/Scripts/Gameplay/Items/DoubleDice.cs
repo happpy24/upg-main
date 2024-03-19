@@ -7,6 +7,9 @@ internal class DoubleDice : ItemManager
     internal DoubleDice(Player player) : base(player)
     {
         path = Application.dataPath + "/Sprites/Items/doubledice.png";
+        itemName = "Double Dice";
+        desc = "This item gives you a second dice to roll";
+        cost = 8;
     }
     internal override void UseItem()
     {
