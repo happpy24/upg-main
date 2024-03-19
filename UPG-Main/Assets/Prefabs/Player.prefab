@@ -136,6 +136,11 @@ MonoBehaviour:
   roll: {fileID: 3997048041111954233}
   rollMargin: 0.2
   playerSpeed: 6
+  itemFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ArtifactID: 0
 --- !u!1 &3697079147272794822
 GameObject:
   m_ObjectHideFlags: 0
