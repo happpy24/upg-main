@@ -1,0 +1,93 @@
+{
+    "name": "InputControls",
+    "maps": [
+        {
+            "name": "MobileControls",
+            "id": "c4292e51-0809-40ac-8f6f-4ac254e37b47",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "a6b1cb88-998f-4b22-b8b0-31b70fda5658",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9d8247a4-42d6-4695-adb6-66977764bb32",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "DesktopControls",
+            "id": "4a263458-b74e-4457-80cf-0de3315852f9",
+            "actions": [
+                {
+                    "name": "NextArea(Test)",
+                    "type": "Button",
+                    "id": "0c6f712c-5717-4405-aaa1-5b59b50c04d7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Notification",
+                    "type": "Button",
+                    "id": "2ad668bd-6f28-4f3b-8c3f-b80e20da98e9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ed0f914e-52d8-4a48-bd86-5dd0c36d251e",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextArea(Test)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80d9af75-245c-4336-bcac-f1f3360d39ca",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextArea(Test)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52f7d7fb-9777-4f24-9bf0-d22fed843146",
+                    "path": "<Keyboard>/#(E)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Notification",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
