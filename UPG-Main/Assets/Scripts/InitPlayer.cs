@@ -9,30 +9,11 @@ public class InitPlayer : NetworkBehaviour
 {
     public Text playerNameText;
 
-    void Start()
+    public void NameChanger(string str)
     {
         if (isLocalPlayer)
         {
-#if !UNITY_WEBGL
-            string playername = "DefaultPlayer";
-            playerNameText.text = playername;
-#else 
-            string playerName = GetPlayerNameFromLocalStorage();
-
-            if(!string.IsNullOrEmpty(playerName))
-            {
-                playerNameText.text = playerName;
-            }
-            else
-            {
-                playerNameText.text = "DefaultPlayer";
-            }
-#endif
+            playerNameText.text = str;
         }
     }
-
-#if UNITY_WEBGL
-    [DllImport("__Internal")]
-    private static extern string GetPlayerNameFromLocalStorage();
-#endif
 }
