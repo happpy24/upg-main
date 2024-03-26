@@ -40,11 +40,7 @@ public class MainNetworkManager : NetworkManager
     {
         base.OnServerSceneChanged(sceneName);
 
-        if(sceneName == onlineScene)
-        {
-            // StartCoroutine(ServerLoadSubScenes());
-            SceneManager.LoadSceneAsync("LobbyScene", LoadSceneMode.Additive);
-        }
+        SceneManager.LoadSceneAsync("LobbyScene", LoadSceneMode.Additive);
     }
 
     public override void OnClientSceneChanged()
@@ -52,13 +48,5 @@ public class MainNetworkManager : NetworkManager
         base.OnClientSceneChanged();
 
         SceneManager.LoadSceneAsync("Design_Scene", LoadSceneMode.Additive);
-    }
-
-    IEnumerator ServerLoadSubScenes()
-    {
-       foreach(var additiveScene in scenesToLoad)
-        {
-            yield return SceneManager.CreateScene(additiveScene);
-        }
     }
 }

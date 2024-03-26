@@ -48,9 +48,4 @@ public class Gamemanager : MonoBehaviour
             LayoutImages[3].GetComponent<Image>().preserveAspect = true;
         }
     }
-
-    private void GameEvents()
-    {
-
-    }
 }

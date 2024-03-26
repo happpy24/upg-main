@@ -17,6 +17,15 @@ namespace Mirror
         void Awake()
         {
             manager = GetComponent<NetworkManager>();
+
+            string[] args = System.Environment.GetCommandLineArgs();
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (args[i] == "launch-as-server")
+                {
+                    manager.StartServer();
+                }
+            }
         }
 
         void OnGUI()
