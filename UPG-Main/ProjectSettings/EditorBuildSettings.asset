@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main game scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Main game scenes/OfflineScene.unity
+    guid: e20675661cb33ea48818275c89a9495c
   - enabled: 1
-    path: Assets/Scenes/Main game scenes/Minigame1.unity
-    guid: 45b37a2d5f52d964190cc75cb4c28528
+    path: Assets/Scenes/Main game scenes/PersistantScene.unity
+    guid: 33c605ef96b0e6d4b905068542d14c82
+  - enabled: 1
+    path: Assets/Scenes/Main game scenes/LobbyScene.unity
+    guid: 5d8b4b3e42489e94aa87c99f097e0d89
+  - enabled: 1
+    path: Assets/Scenes/WebGLScenes/Design_Scene.unity
+    guid: bc46bdf91ab487549bc5f15ba02771a4
   m_configObjects: {}

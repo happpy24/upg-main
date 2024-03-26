@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using Unity.UI;
 using TMPro;
 using System.Runtime.CompilerServices;
 using DG.Tweening;
