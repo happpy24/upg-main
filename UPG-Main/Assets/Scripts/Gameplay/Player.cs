@@ -1,9 +1,10 @@
+using Mirror;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-internal class Player : MonoBehaviour
+internal class Player : NetworkBehaviour
 {
     internal int followOrder;
     public PlayerMovement movement;
@@ -28,6 +29,11 @@ internal class Player : MonoBehaviour
 
     void Update()
     {
+        if (isLocalPlayer)
+        {
+            
+        }
+
         if (diceRoll > 0 && !diceRolling)
             movement.MovePlayer(this, transform);
     }
