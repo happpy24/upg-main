@@ -6,7 +6,7 @@ internal class SpeedUp : ItemManager
 {
     internal SpeedUp(Player player) : base(player)
     {
-        path = Application.dataPath + "/Sprites/Items/speedboost.png";
+        path = spriteFolder + "/speedboost.png";
         itemName = "Speed Boost";
         desc = "This item gives you a +5 to your roll";
         cost = 5;

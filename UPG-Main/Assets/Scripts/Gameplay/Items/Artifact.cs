@@ -39,7 +39,7 @@ public class Artifact : MonoBehaviour
     {
         internal GetPrize(Player player) : base(player)
         {
-            path = Application.dataPath + "/Sprites/Items/artifact.png";
+            path = spriteFolder + "/artifact.png";
             itemName = "Artifact";
             desc = "This item is an artifact";
             cost = 0;

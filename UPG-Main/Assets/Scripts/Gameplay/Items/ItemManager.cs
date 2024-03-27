@@ -7,9 +7,10 @@ internal class ItemManager
     internal int cost;
     internal string itemName;
     internal string desc;
-    protected Sprite sprite;
     internal string path;
+    protected Sprite sprite;
     protected Player player;
+    protected string spriteFolder = Application.dataPath + "/MainGame/Sprites/Items";
 
     public ItemManager(Player player)
     {
