@@ -21,6 +21,7 @@ public class SceneNetworking : NetworkManager
         base.OnServerDisconnect(conn);
 
         onDisconnect.Invoke(conn);
+
     }
 
     public override void OnClientDisconnect()

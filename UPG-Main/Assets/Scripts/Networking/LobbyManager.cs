@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
+using TMPro;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -69,6 +70,8 @@ public class LobbyManager : MonoBehaviour
         playerCount++;
 
         GameObject player = new GameObject(name, typeof(Image));
+
+        player.AddComponent<AddPlayerName>().SetLobbyName(name);
 
         //set image sprite
         Image playerImage = player.GetComponent<Image>();
