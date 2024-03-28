@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5550924567181098974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   playerNameText: {fileID: 9132039150028820976}
+  playerName: 
 --- !u!1 &7905015573295197538
 GameObject:
   m_ObjectHideFlags: 0
