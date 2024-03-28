@@ -41,7 +41,7 @@ public class NotificationManager : MonoBehaviour
         {
             StopCoroutine(notificationCoroutine);
         }
-        notification.DOAnchorPos(new Vector3(0, 1550, 0), 0.5f);
+        notification.DOAnchorPos(new Vector3(0, -115, 0), 0.5f);
         StartCoroutine(OutNotification(message));
     }
     private IEnumerator OutNotification(string message)
@@ -53,7 +53,7 @@ public class NotificationManager : MonoBehaviour
             t += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        notification.DOAnchorPos(new Vector3(0, 3000, 0), 0.5f);
+        notification.DOAnchorPos(new Vector3(0, 165, 0), 0.5f);
     }
 
 }
